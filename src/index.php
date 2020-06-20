@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Leon Arantes">
+    <link rel="shortcut icon" href="_IMAGES/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="_CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <title>Leon Arantes | APP NOTES</title>
+
+</head>
+<body>
+
+<section class="bg-section">
+    <div class="container">
+        <div class="title upper c-gray font25">
+            <h2>Crie sua <span class="c-green">Anotações</span></h2>
+        </div> <!--title-->
+
+        <div class="box-single-notes flex">
+        </div> <!--box-single-notes-->
+
+    </div> <!--container-->
+
+    <div class="btn-plus-notes b-white font25">
+        <i class="fas fa-plus c-green"></i>
+    </div> <!--btn-plus-notes-->
+</section> <!--bg-section-->
+
+
+<script src="_JS/class-note-controller.js"></script>
+<script src="_JS/note-controller.js"></script>
+</body>
+</html>
