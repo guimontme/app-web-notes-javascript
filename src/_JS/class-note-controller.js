@@ -42,13 +42,18 @@ class noteController{
     }
 
     clickNote() {
-        if(!this.i) this.i = 1;
-        this.descendentes = this.box_single_note.querySelectorAll(".note");
+       /*  this.descendentes = this.box_single_note.querySelectorAll(".note");
         for ( var i = 0; i < this.descendentes.length; i++) {
             this.descendentes[i].addEventListener("click", function (e) {
+                this.descendentes[i].style.display = "none";
+            })
+        } */
+        this.descendentes = this.box_single_note.querySelectorAll(".note");
+        for(var i = 0; i < this.descendentes.length; i++) {
+
+            this.descendentes[i].querySelectorAll(".delete").addEventListener("click", function (e) {
                 this.style.display = "none";
             })
         }
-        console.log(this.box_single_note.querySelectorAll(".note")[this.i]); // return NodeList(div.note)
     }
 }
