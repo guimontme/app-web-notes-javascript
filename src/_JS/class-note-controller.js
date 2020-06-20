@@ -26,8 +26,7 @@ class noteController{
     }
 
     templateNote(i) {
-
-           this.box_single_note.innerHTML += ("<div class='note' id='note_"+ i +"'>" +
+        let note = "<div class='note' id='note_"+ i +"'>" +
                                    "<header class='flex'>" +
                                        "<div class='edits'>" +
                                            "<i class='fas fa-pencil-alt c-orange edit'></i>" +
@@ -36,24 +35,43 @@ class noteController{
                                        "</div>" +
                                    "</header>" +
                                    "<textarea placeholder='Nova Nota'></textarea>" +
-                               "</div>");
+                               "</div>";
 
-           return this.box_single_note;
+        $(".box-single-notes").append(note);
     }
 
     clickNote() {
-       /*  this.descendentes = this.box_single_note.querySelectorAll(".note");
-        for ( var i = 0; i < this.descendentes.length; i++) {
-            this.descendentes[i].addEventListener("click", function (e) {
-                this.descendentes[i].style.display = "none";
-            })
-        } */
-        this.descendentes = this.box_single_note.querySelectorAll(".note");
-        for(var i = 0; i < this.descendentes.length; i++) {
+        $.each($(".note"), function(i, e){
+            $(e).find(".delete").on("click", function() {
+                $(this).parents(".note").fadeOut(600, function(){
+                    $(this).remove();
+                });
+            });
+        });
 
-            this.descendentes[i].querySelectorAll(".delete").addEventListener("click", function (e) {
-                this.style.display = "none";
-            })
-        }
+        $.each($(".note"), function(i, e){
+            $(e).find(".save").on("click", function() {
+                if($(this).hasClass("saved")) {
+                    $(this).stop().end();
+                    $(this).siblings("i").fadeIn(600);
+                    $(this).removeClass("saved");
+                    $(this).parents(".note").find("textarea").prop("disabled", false);
+                } else {
+                    $(this).stop().end();
+                    $(this).siblings("i").fadeOut(600);
+                    $(this).addClass("saved");
+                $(this).parents(".note").find("textarea").prop("disabled", true);
+                }
+            });
+        });
+
+        $.each($(".note"), function(i, e){
+            $(e).find(".edit").on("click", function() {
+                $(this).parents(".note").find("textarea").focus();
+                console.log($(this).parents(".note").find("textarea").val());
+            });
+        });
+
+
     }
 }
